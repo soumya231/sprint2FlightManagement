@@ -14,12 +14,12 @@ public class Airport {
 	@Id
 	private int airportId;
 	
-	@Column(length=30)
+	@Column(length=10)
 	private String airportName;
 
-	@Column(length=30)
+	@Column(length=10)
 	private String airportLocation;
-	@Column(length=30)
+	@Column(length=10)
 	private String airportCode;
     
     public int getAirportId() {
@@ -50,12 +50,6 @@ public class Airport {
 		this.airportCode = airportCode;
 	}
 	
-	public Schedule getSchedule() {
-		return schedule;
-	}
-	public void setSchedule(Schedule schedule) {
-		this.schedule = schedule;
-	}
 	public Airport(int airportId,String airportName, String airportLocation, String airportCode) {
 		super();
 		this.airportId = airportId;

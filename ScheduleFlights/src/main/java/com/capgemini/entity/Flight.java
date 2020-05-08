@@ -24,9 +24,9 @@ public class Flight implements Serializable {
 	@Id
 	@GeneratedValue
 	private int flights;
-	@Column(length=30)
+	@Column(length=10)
 	private String carrierName;
-	@Column(length=30)
+	@Column(length=10)
 	private String flightModel;
 	private int seatCapacity;
 	

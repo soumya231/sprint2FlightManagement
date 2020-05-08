@@ -19,10 +19,13 @@ public class RestControllerApplication {
 
 	@Autowired
 	private FlightService flightService;
+
+	
 	@PostMapping("/AddFlight")
 	public String addFlight(@RequestBody Flight flight) {
-	return flightService.addFlight(flight);
+		
+		return	flightService.addFlight(flight);
+			
 	}
-	
 	
 }

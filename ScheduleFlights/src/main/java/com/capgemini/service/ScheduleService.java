@@ -21,10 +21,10 @@ public class ScheduleService implements ScheduleServiceI{
 		
 		if(result){
 			scheduledao.save(schedule);
-			return "updated flight";
+			return "Flight is Scheduled";
 		}else{
 			
-			return "Id not exits";
+			return "Id not exists";
 		}
 	
 	}

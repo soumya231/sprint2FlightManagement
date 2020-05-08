@@ -2,6 +2,8 @@ package com.capgemini.entity;
 
 
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,11 +17,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name="scheduled_flights")
-public class ScheduleFlight {
+public class ScheduleFlight implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="flight_number")
 	private int flightNumber;
+	@Column(length=10)
 	private int scheduleFlightId; 
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "scheduleFlight")
@@ -43,15 +47,7 @@ public class ScheduleFlight {
 	public void setScheduleFlightId(int scheduleFlightId) {
 		this.scheduleFlightId = scheduleFlightId;
 	}
-
-
-
 	
-
-	public Flight getFlight() {
-		return flight;
-	}
-
 
 
 	public void setFlight(Flight flight) {
@@ -59,16 +55,11 @@ public class ScheduleFlight {
 	}
 
 
-
-	public Schedule getSchedule() {
-		return schedule;
-	}
-
-
-
 	public void setSchedule(Schedule schedule) {
 		this.schedule = schedule;
 	}
+
+
 
 	public int getFlightNumber() {
 		return flightNumber;
@@ -82,20 +73,17 @@ public class ScheduleFlight {
 
 
 
-	public ScheduleFlight(int scheduleFlightId, int flightNumber, Flight flight, Schedule schedule) {
+	public ScheduleFlight(int scheduleFlightId, int flightNumber) {
 		super();
 		this.scheduleFlightId = scheduleFlightId;
 		this.flightNumber = flightNumber;
-		this.flight = flight;
-		this.schedule = schedule;
-		this.schedule.setScheduleFlight(this);
 	}
 
+public ScheduleFlight(){
+	
+}
 
 
-	public ScheduleFlight(){
-		
-	}
 
 	
 }

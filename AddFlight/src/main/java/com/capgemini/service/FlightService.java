@@ -1,8 +1,9 @@
 package com.capgemini.service;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.capgemini.dao.FlightDao;
 import com.capgemini.entity.Flight;
 
@@ -16,11 +17,9 @@ public class FlightService implements FlightServiceI {
 	@Override
 	public String addFlight(Flight flight) {
 		 flightDao.save(flight);
-		 return "flight is added to dataBase";
+		 return "Flight is Added";
 		
 	}
-
-	
 	
 
 }

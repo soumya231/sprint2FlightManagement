@@ -13,9 +13,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-
 
 @Entity
 @Table(name="scheduling")
@@ -23,16 +20,16 @@ public class Schedule {
 	
 	@Id
 	private int scheduleId;
-	@Column(length=15)
+	@Column(length=10)
 	private String sourceAirport;
-	@Column(length=15)
+	@Column(length=10)
 	private String destinationAirport;
 	
 	
-	@Column(length=15)
+	@Column(length=10)
 	private LocalDateTime departureDate;
 	
-	 @Column(length=15)
+	 @Column(length=10)
 	private LocalDateTime arrivalDate;
 	
 	@OneToOne(cascade = {CascadeType.ALL})

@@ -22,17 +22,18 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Schedule {
 	
 	@Id
+	@Column(length=10)
 	private int scheduleId;
-	@Column(length=30)
+	@Column(length=10)
 	private String sourceAirport;
-	@Column(length=30)
+	@Column(length=10)
 	private String destinationAirport;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	@Column(length=30)
+	@Column(length=10)
 	private LocalDateTime departureDate;
 	 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	 @Column(length=30)
+	 @Column(length=10)
 	private LocalDateTime arrivalDate;
 	
 	@OneToOne(cascade = {CascadeType.ALL})
@@ -45,14 +46,9 @@ public class Schedule {
 	public int getScheduleId() {
 		return scheduleId;
 	}
-	public Airport getAirport() {
-		return airport;
-	}
+	
 	public void setAirport(Airport airport) {
 		this.airport = airport;
-	}
-	public ScheduleFlight getScheduleFlight() {
-		return scheduleFlight;
 	}
 	public void setScheduleFlight(ScheduleFlight scheduleFlight) {
 		this.scheduleFlight = scheduleFlight;
@@ -91,15 +87,13 @@ public class Schedule {
 	
 
 	public Schedule(int scheduleId, String sourceAirport, String destinationAirport, LocalDateTime departureDate,
-			LocalDateTime arrivalDate, Airport airport, ScheduleFlight scheduleFlight) {
+			LocalDateTime arrivalDate) {
 		super();
 		this.scheduleId = scheduleId;
 		this.sourceAirport = sourceAirport;
 		this.destinationAirport = destinationAirport;
 		this.departureDate = departureDate;
 		this.arrivalDate = arrivalDate;
-		this.airport = airport;
-		this.airport.setSchedule(this);
 	}
 	public Schedule(){
 		

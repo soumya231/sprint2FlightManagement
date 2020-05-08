@@ -20,6 +20,7 @@ public class ScheduleFlight {
 	@Id
 	@Column(name="flight_number")
 	private int flightNumber;
+	@Column(length=10)
 	private int scheduleFlightId; 
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "scheduleFlight")
