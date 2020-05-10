@@ -4,6 +4,6 @@ import com.capgemini.entity.ScheduleFlight;
 
 public interface ScheduleServiceI {
 
-	String updateFlight(ScheduleFlight schedule);
+	ScheduleFlight updateFlight(ScheduleFlight schedule);
 
 }

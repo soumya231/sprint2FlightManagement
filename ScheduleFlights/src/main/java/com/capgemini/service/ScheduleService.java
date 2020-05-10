@@ -15,17 +15,15 @@ public class ScheduleService implements ScheduleServiceI{
 	
 
        @Override
-		public String updateFlight(ScheduleFlight schedule) {
+		public ScheduleFlight updateFlight(ScheduleFlight schedule) {
 		
 		boolean result=scheduledao.existsById(schedule.getFlightNumber());
-		
+		ScheduleFlight data = null;
 		if(result){
-			scheduledao.save(schedule);
-			return "Flight is Scheduled";
-		}else{
-			
-			return "Id not exists";
+			 data=scheduledao.save(schedule);
 		}
+			return data;
+
 	
 	}
 		

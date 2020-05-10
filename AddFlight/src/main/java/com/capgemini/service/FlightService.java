@@ -14,8 +14,11 @@ public class FlightService implements FlightServiceI {
 	@Autowired
 	private FlightDao flightDao;
 	
+	
+
 	@Override
 	public String addFlight(Flight flight) {
+		
 		 flightDao.save(flight);
 		 return "Flight is Added";
 		
