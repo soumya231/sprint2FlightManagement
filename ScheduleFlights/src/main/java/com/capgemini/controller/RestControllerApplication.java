@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.dao.RecordNotFoundException;
+import com.capgemini.entity.Flight;
 import com.capgemini.entity.ScheduleFlight;
 import com.capgemini.service.ScheduleService;
 
@@ -26,6 +28,16 @@ public class RestControllerApplication {
 	@Autowired
 	private ScheduleService scheduleservice;
 	
+//Adding flight to database
+	@PostMapping("/AddFlight")
+	public String addFlight(@RequestBody Flight flight) {
+    
+		        	
+		return	scheduleservice.addFlight(flight);
+			
+	}
+	
+	//schedule the flight
 	@PutMapping("/update")
 	public ResponseEntity<String> updateFlight( @RequestBody ScheduleFlight schedule) {
 		
@@ -41,7 +53,7 @@ public class RestControllerApplication {
 			}
     }
 	
-@ResponseStatus(value=HttpStatus.NOT_FOUND,reason="Id not found")
+@ResponseStatus(value=HttpStatus.NOT_FOUND,reason="Enter valid data")
 @ExceptionHandler(RecordNotFoundException.class)                        //controller level exception handling
 public void RecordNotFound() {
 }
